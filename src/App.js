@@ -1,15 +1,39 @@
 import "./App.css";
-import axios from "axios";
-import { useEffect } from "react";
+import { useState } from "react";
 
 function App() {
-  const callApi = async () => {
-    axios.get("/api").then((res) => console.log(res.data.test));
+  const [toDo, setToDo] = useState("");
+  const [toDos, setTodos] = useState([]);
+  const onChange = (e) => setToDo(e.target.value);
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (toDo === "") {
+      return;
+    }
+    setTodos((currentArray) => [toDo, ...currentArray]);
+    setToDo("");
   };
-  useEffect(() => {
-    callApi();
-  }, []);
-  return <div className="App">test</div>;
+
+  return (
+    <div>
+      <h2>ToDo List</h2>
+      <form onSubmit={onSubmit}>
+        <input
+          onChange={onChange}
+          value={toDo}
+          type="text"
+          placeholder="write your to do"
+        />
+        <button>ADD TO DO</button>
+      </form>
+      <hr />
+      <ul>
+        {toDos.map((a, i) => (
+          <li key={i}>{a}</li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export default App;
