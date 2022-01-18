@@ -3,11 +3,13 @@ import "./App.css";
 import { useState } from "react";
 import { createGlobalStyle } from "styled-components";
 import TodoTemplate from "./components/TodoTemplate";
+import ToDoHead from "./components/ToDoHead";
 import { CSSTransition } from "react-transition-group";
 
 const GlobalStyle = createGlobalStyle`
   body {
     background: #e9ecef;
+    text-align: center;
   }
 `;
 
@@ -59,7 +61,7 @@ function 투두화면(props) {
     <div>
       {props.시작스위치 === true ? (
         <TodoTemplate>
-          <h2>ToDo List</h2>
+          <ToDoHead></ToDoHead>
           <form onSubmit={onSubmit}>
             <input
               onChange={onChange}
@@ -69,7 +71,6 @@ function 투두화면(props) {
             />
             <button>ADD TO DO</button>
           </form>
-          <hr />
           <ul>
             {props.toDos.map((a, i) => (
               <li key={i}>{a}</li>
