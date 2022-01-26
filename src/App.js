@@ -2,9 +2,11 @@ import "./Test.scss";
 import "./App.css";
 import { useState } from "react";
 import { createGlobalStyle } from "styled-components";
-import TodoTemplate from "./components/TodoTemplate";
-import ToDoHead from "./components/ToDoHead";
-import { CSSTransition } from "react-transition-group";
+import { Link, Route, Switch } from "react-router-dom";
+import LandingPage from "./components/views/LandingPage/LandingPage";
+import LoginPage from "./components/views/LoginPage/LoginPage";
+import RegisterPage from "./components/views/RegisterPage/RegisterPage";
+import TodoList from "./components/TodoList";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -16,68 +18,26 @@ const GlobalStyle = createGlobalStyle`
 function App() {
   const [toDo, setToDo] = useState("");
   const [toDos, setTodos] = useState([]);
-  let [시작스위치, 시작스위치변경] = useState(false);
 
   return (
     <div>
       <GlobalStyle />
+      <Switch>
+        <Route exact path="/" component={LandingPage} />
 
-      <시작화면 시작스위치={시작스위치} 시작스위치변경={시작스위치변경} />
+        <Route exact path="/login" component={LoginPage} />
 
-      <투두화면
-        시작스위치={시작스위치}
-        toDo={toDo}
-        toDos={toDos}
-        setToDo={setToDo}
-        setTodos={setTodos}
-        시작스위치변경={시작스위치변경}
-      />
-    </div>
-  );
-}
-function 시작화면(props) {
-  return (
-    <div onClick={() => props.시작스위치변경(true)}>
-      {props.시작스위치 === false ? (
-        <TodoTemplate>
-          <h2>시작</h2>
-        </TodoTemplate>
-      ) : null}
-    </div>
-  );
-}
+        <Route exact path="/register" component={RegisterPage} />
 
-function 투두화면(props) {
-  const onChange = (e) => props.setToDo(e.target.value);
-  const onSubmit = (e) => {
-    e.preventDefault();
-    if (props.toDo === "") {
-      return;
-    }
-    props.setTodos((currentArray) => [props.toDo, ...currentArray]);
-    props.setToDo("");
-  };
-  return (
-    <div>
-      {props.시작스위치 === true ? (
-        <TodoTemplate>
-          <ToDoHead></ToDoHead>
-          <form onSubmit={onSubmit}>
-            <input
-              onChange={onChange}
-              value={props.toDo}
-              type="text"
-              placeholder="write your to do"
-            />
-            <button>ADD TO DO</button>
-          </form>
-          <ul>
-            {props.toDos.map((a, i) => (
-              <li key={i}>{a}</li>
-            ))}
-          </ul>
-        </TodoTemplate>
-      ) : null}
+        <Route exact path="/todo">
+          <TodoList
+            toDo={toDo}
+            toDos={toDos}
+            setToDo={setToDo}
+            setTodos={setTodos}
+          />
+        </Route>
+      </Switch>
     </div>
   );
 }

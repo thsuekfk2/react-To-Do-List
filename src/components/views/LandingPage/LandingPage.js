@@ -1,7 +1,13 @@
 import React from "react";
-
-function LandingPage() {
-  return <div>LandingPage</div>;
+import TodoTemplate from "../../TodoTemplate";
+function LandingPage(props) {
+  return (
+    <div>
+      <TodoTemplate>
+        <h2>시작</h2>
+      </TodoTemplate>
+    </div>
+  );
 }
 
 export default LandingPage;
