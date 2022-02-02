@@ -24,6 +24,7 @@ ReactDOM.render(
           Reducer,
           window.__REDUX_DEVTOOLS_EXTENSION__ &&
             window.__REDUX_DEVTOOLS_EXTENSION__()
+          //Redux DevTools 추가 (툴을 이용해서 Redux를 편하게 사용 가능)
         )}
       >
         <App />
