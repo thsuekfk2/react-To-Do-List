@@ -1,4 +1,4 @@
-import { LOGIN_USER } from "../_actions/types";
+import { LOGIN_USER , REGISTER_USER } from "../_actions/types";
 
 //전 state, action => nextState
 export default function (state = {}, action) {
@@ -6,6 +6,9 @@ export default function (state = {}, action) {
     case LOGIN_USER:
       return { ...state, loginSuccess: action.payload };
       break;
+      case REGISTER_USER:
+        return { ...state, register: action.payload };
+        break;
     default:
       return state;
   }
