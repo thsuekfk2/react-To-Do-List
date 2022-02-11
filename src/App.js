@@ -7,7 +7,7 @@ import LandingPage from "./components/views/LandingPage/LandingPage";
 import LoginPage from "./components/views/LoginPage/LoginPage";
 import RegisterPage from "./components/views/RegisterPage/RegisterPage";
 import TodoList from "./components/TodoList";
-
+import Auth from "./hoc/auth";
 const GlobalStyle = createGlobalStyle`
   body {
     background: #e9ecef;
@@ -23,11 +23,11 @@ function App() {
     <div>
       <GlobalStyle />
       <Switch>
-        <Route exact path="/" component={LandingPage} />
+        <Route exact path="/" component={Auth(LandingPage, null)} />
 
-        <Route exact path="/login" component={LoginPage} />
+        <Route exact path="/login" component={Auth(LoginPage, false)} />
 
-        <Route exact path="/register" component={RegisterPage} />
+        <Route exact path="/register" component={Auth(RegisterPage, false)} />
 
         <Route exact path="/todo">
           <TodoList
