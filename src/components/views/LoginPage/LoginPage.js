@@ -25,6 +25,7 @@ function LoginPage(props) {
       password: Password,
     };
     //redux를 사용하여
+    //디스패치를 이용해서 loginUser 액션을 취함
     dispatch(loginUser(body)).then((res) => {
       if (res.payload.loginSuccess) {
         props.history.push("/");
