@@ -8,6 +8,7 @@ import LoginPage from "./components/views/LoginPage/LoginPage";
 import RegisterPage from "./components/views/RegisterPage/RegisterPage";
 import TodoList from "./components/TodoList";
 import Auth from "./hoc/auth";
+
 const GlobalStyle = createGlobalStyle`
   body {
     background: #e9ecef;

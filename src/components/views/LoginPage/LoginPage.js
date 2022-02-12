@@ -1,10 +1,9 @@
 import { Axios } from "axios";
 import React, { useState } from "react";
-import TodoTemplateBlock from "../../TodoTemplate";
+
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../../_actions/user_action";
-import {withRouter} from 'react-router-dom'
-
+import { withRouter } from "react-router-dom";
 
 function LoginPage(props) {
   const dispatch = useDispatch();
@@ -36,33 +35,31 @@ function LoginPage(props) {
     });
   };
   return (
-    <TodoTemplateBlock>
-      <div
-        style={{
-          display: "flex",
-          width: "100%",
-          height: "100vh",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
+    <div
+      style={{
+        display: "flex",
+        width: "100%",
+        height: "100vh",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <form
+        style={{ display: "flex", flexDirection: "column" }}
+        onSubmit={onSubmitHandler}
       >
-        <form
-          style={{ display: "flex", flexDirection: "column" }}
-          onSubmit={onSubmitHandler}
-        >
-          <label>Email</label>
-          <input type="email" value={Email} onChange={onEmailHandler}></input>
-          <label>Password</label>
-          <input
-            type="password"
-            value={Password}
-            onChange={onPasswordHandler}
-          ></input>
-          <br />
-          <button>Login</button>
-        </form>
-      </div>
-    </TodoTemplateBlock>
+        <label>Email</label>
+        <input type="email" value={Email} onChange={onEmailHandler}></input>
+        <label>Password</label>
+        <input
+          type="password"
+          value={Password}
+          onChange={onPasswordHandler}
+        ></input>
+        <br />
+        <button>Login</button>
+      </form>
+    </div>
   );
 }
 
