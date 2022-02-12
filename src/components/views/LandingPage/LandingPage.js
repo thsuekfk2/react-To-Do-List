@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
 import { useCookies } from "react-cookie";
-import "./LandingPage.css";
+import Layout from "../../Layout/Layout";
 
 function LandingPage(props) {
   const [cookies, setCookie, removeCookie] = useCookies(["x_auth"]);
@@ -25,16 +25,18 @@ function LandingPage(props) {
 
   return (
     <div>
-      <section className="first-page"></section>
-      <h2>시작</h2>
-      {cookies.x_auth ? ( //쿠키 값이 있으면 로그아웃 표시
-        <button className="logout-btn" onClick={onClickHandler}>
-          로그아웃
-        </button>
-      ) : (
-        //쿠키 값이 있으면 로그인 표시
-        <button className="login-btn">로그인</button>
-      )}
+      <Layout>
+        <section className="first-page"></section>
+        <h2>시작</h2>
+        {cookies.x_auth ? ( //쿠키 값이 있으면 로그아웃 표시
+          <button className="logout-btn" onClick={onClickHandler}>
+            로그아웃
+          </button>
+        ) : (
+          //쿠키 값이 있으면 로그인 표시
+          <button className="login-btn">로그인</button>
+        )}
+      </Layout>
     </div>
   );
 }
