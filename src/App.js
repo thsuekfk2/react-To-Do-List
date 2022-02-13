@@ -12,7 +12,6 @@ import Auth from "./hoc/auth";
 const GlobalStyle = createGlobalStyle`
   body {
     margin:0;
-
   }
 `;
 

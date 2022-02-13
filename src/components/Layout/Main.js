@@ -11,9 +11,14 @@ const Main = () => {
       />
       <MainItem
         title={"Dreams come true"}
-        contents1={"당신의 꿈들 입니다"}
-        contents2={"포기하지마세요"}
+        contents1={"누군가의 꿈들 입니다"}
+        contents2={"당신도 포기하지마세요"}
       />
+      <div className="gallery-wrapper">
+        <img className="gallery-img" src="https://ifh.cc/g/5DEPBA.jpg" />
+        <img className="gallery-img" src="https://ifh.cc/g/5DEPBA.jpg" />
+        <img className="gallery-img" src="https://ifh.cc/g/5DEPBA.jpg" />
+      </div>
     </div>
   );
 };
@@ -21,7 +26,7 @@ const Main = () => {
 function MainItem(props) {
   return (
     <div>
-      <div className="main-wrap">
+      <div className="main-wrapper">
         <div className="main-contents">
           <div className="main-contents-title">
             <p>{props.title}</p>
