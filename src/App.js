@@ -11,8 +11,8 @@ import Auth from "./hoc/auth";
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background: #e9ecef;
-    text-align: center;
+    margin:0;
+
   }
 `;
 

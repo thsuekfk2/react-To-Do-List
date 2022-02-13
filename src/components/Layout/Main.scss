@@ -1,0 +1,32 @@
+div.main-wrap {
+  height: 100%;
+  background-color: white;
+  @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap");
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+div.main-image {
+  height: 100vh;
+  background-image: url(https://ifh.cc/g/5DEPBA.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+div.main-contents {
+  padding-top: 50px;
+  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .main-contents-title p {
+    font-size: 18px;
+  }
+  .main-contents-item p {
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: -0.02em;
+    line-height: 0.5em;
+  }
+}
