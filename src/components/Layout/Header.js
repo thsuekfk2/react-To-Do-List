@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Header.scss";
-import { BiUser, BiBasket } from "react-icons/bi";
+import { BiUser, BiBasket, BiMenu } from "react-icons/bi";
 
 const Header = () => {
   const [navbar, setNavbar] = useState(false);
@@ -18,13 +18,17 @@ const Header = () => {
   return (
     <header className={navbar ? "header active" : "header"}>
       <div className="header-contens">
+        <li className="menu-icon">
+          <BiMenu />
+        </li>
+
         <div className="header-logo">felices sueños</div>
         <nav className="header-nav">
           <ul>
-            <li>
+            <li className="login-icon">
               <BiUser />
             </li>
-            <li>
+            <li className="basket-icon">
               <BiBasket />
             </li>
           </ul>
