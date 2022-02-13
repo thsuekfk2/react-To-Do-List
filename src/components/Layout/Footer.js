@@ -1,10 +1,11 @@
-import "./Footer.css";
+import "./Footer.scss";
 
 const Footer = () => {
   return (
     <footer className="footer-wrapper">
       <div className="footer-contens">
-        <h2 className="footer-title">This is Footer</h2>
+        <p>Copyright © 2022 tcpschool.co.,Ltd. All rights reserved.</p>
+        <p>Contact webmaster for more information. 070-1234-5678</p>
       </div>
     </footer>
   );

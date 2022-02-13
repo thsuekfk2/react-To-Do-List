@@ -40,13 +40,14 @@ nav.header-nav {
     margin-left: 30px;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 480px) {
   //모바일
   .menu-icon {
     display: flex;
     cursor: pointer;
   }
   .header {
+    height: 60px;
     .header-logo {
       padding-left: 20%;
     }

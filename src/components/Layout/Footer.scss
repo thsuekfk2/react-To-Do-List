@@ -1,0 +1,10 @@
+footer {
+  height: 80px;
+  padding-top: 50px;
+  .footer-contens p {
+    text-align: center;
+    @import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
+    font-family: "PT Serif", serif;
+    font-size: 10px;
+  }
+}

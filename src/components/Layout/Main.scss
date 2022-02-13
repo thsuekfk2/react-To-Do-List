@@ -48,5 +48,6 @@ img.gallery-img {
   &:hover {
     filter: brightness(80%);
     transition: 0.5s;
+    cursor: pointer;
   }
 }
