@@ -28,7 +28,6 @@ function LandingPage(props) {
       <Layout>
         <Main />
       </Layout>
-      <section className="first-page"></section>
     </div>
   );
 }

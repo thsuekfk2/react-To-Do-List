@@ -57,8 +57,8 @@ const Header = (props) => {
           <ul className="nav-menu-icon">
             <li className="login-icon">
               {cookies.x_auth ? ( //쿠키 값이 있으면 로그아웃 표시
-                <Link to="/login">
-                  <button>마이페이지</button>
+                <Link to="/mypage">
+                  <BiUser />
                 </Link>
               ) : (
                 //쿠키 값이 없으면 로그인 표시

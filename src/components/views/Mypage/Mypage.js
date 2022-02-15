@@ -3,10 +3,9 @@ import { withRouter } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import Layout from "../../Layout/Layout";
 import axios from "axios";
-
+import "./Mypage.scss";
 function Mypage(props) {
   const [cookies, setCookie, removeCookie] = useCookies(["x_auth"]);
-  console.log(cookies);
 
   const onClickHandler = () => {
     axios.get("/api/users/logout").then((res) => {
@@ -20,11 +19,16 @@ function Mypage(props) {
   };
 
   return (
-    <div>
-      <button className="logout-btn" onClick={onClickHandler}>
-        로그아웃
-      </button>
-    </div>
+    <Layout>
+      <div
+        className="mypage-contents-wrap"
+        style={{ marginTop: "70px", paddingTop: "70px" }}
+      >
+        <button className="logout-btn" onClick={onClickHandler}>
+          로그아웃
+        </button>
+      </div>
+    </Layout>
   );
 }
 
