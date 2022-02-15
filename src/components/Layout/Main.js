@@ -1,8 +1,10 @@
 import "./Main.scss";
+import MainHeader from "./Header";
 
 const Main = () => {
   return (
     <div>
+      <MainHeader />
       <div className="main-image"></div>
       <MainItem
         title={"felices sueños"}

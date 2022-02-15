@@ -1,22 +1,18 @@
 import React, { useEffect } from "react";
-import axios from "axios";
 import { withRouter } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import Layout from "../../Layout/Layout";
-import Main from "../../Layout/Main";
-function LandingPage(props) {
+import axios from "axios";
+
+function Mypage(props) {
   const [cookies, setCookie, removeCookie] = useCookies(["x_auth"]);
   console.log(cookies);
-
-  useEffect(() => {
-    axios.get("/api/hello").then((res) => console.log(res.data));
-  }, []);
 
   const onClickHandler = () => {
     axios.get("/api/users/logout").then((res) => {
       if (res.data.success) {
         removeCookie("x_auth"); //쿠키 삭제
-        props.history.push("/login");
+        props.history.push("/");
       } else {
         alert("로그아웃이 실패했습니다.");
       }
@@ -25,12 +21,11 @@ function LandingPage(props) {
 
   return (
     <div>
-      <Layout>
-        <Main />
-      </Layout>
-      <section className="first-page"></section>
+      <button className="logout-btn" onClick={onClickHandler}>
+        로그아웃
+      </button>
     </div>
   );
 }
 
-export default withRouter(LandingPage);
+export default withRouter(Mypage);

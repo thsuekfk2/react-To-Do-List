@@ -21,13 +21,15 @@ div.main-contents {
   justify-content: center;
   align-items: center;
   .main-contents-title p {
-    font-size: 18px;
+    font-size: 16px;
+    @import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
+    font-family: "PT Serif", serif;
   }
   .main-contents-item p {
     text-align: center;
-    font-size: 13px;
+    font-size: 12px;
     letter-spacing: -0.02em;
-    line-height: 0.5em;
+    line-height: 0.4em;
   }
 }
 

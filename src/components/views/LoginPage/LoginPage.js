@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../../_actions/user_action";
 import { withRouter } from "react-router-dom";
+import Layout from "../../Layout/Layout";
 
 function LoginPage(props) {
   const dispatch = useDispatch();
@@ -35,31 +36,33 @@ function LoginPage(props) {
     });
   };
   return (
-    <div
-      style={{
-        display: "flex",
-        width: "100%",
-        height: "100vh",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <form
-        style={{ display: "flex", flexDirection: "column" }}
-        onSubmit={onSubmitHandler}
+    <Layout>
+      <div
+        style={{
+          display: "flex",
+          width: "100%",
+          height: "100vh",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
-        <label>Email</label>
-        <input type="email" value={Email} onChange={onEmailHandler}></input>
-        <label>Password</label>
-        <input
-          type="password"
-          value={Password}
-          onChange={onPasswordHandler}
-        ></input>
-        <br />
-        <button>Login</button>
-      </form>
-    </div>
+        <form
+          style={{ display: "flex", flexDirection: "column" }}
+          onSubmit={onSubmitHandler}
+        >
+          <label>Email</label>
+          <input type="email" value={Email} onChange={onEmailHandler}></input>
+          <label>Password</label>
+          <input
+            type="password"
+            value={Password}
+            onChange={onPasswordHandler}
+          ></input>
+          <br />
+          <button>Login</button>
+        </form>
+      </div>
+    </Layout>
   );
 }
 
