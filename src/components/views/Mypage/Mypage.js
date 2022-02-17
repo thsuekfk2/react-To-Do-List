@@ -4,6 +4,7 @@ import { useCookies } from "react-cookie";
 import Layout from "../../Layout/Layout";
 import axios from "axios";
 import "./Mypage.scss";
+
 function Mypage(props) {
   const [cookies, setCookie, removeCookie] = useCookies(["x_auth"]);
 

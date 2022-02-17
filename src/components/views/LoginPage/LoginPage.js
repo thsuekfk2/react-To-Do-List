@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { loginUser } from "../../../_actions/user_action";
 import { withRouter } from "react-router-dom";
 import Layout from "../../Layout/Layout";
+import "./LoginPage.scss";
 
 function LoginPage(props) {
   const dispatch = useDispatch();
@@ -38,29 +39,29 @@ function LoginPage(props) {
   return (
     <Layout>
       <div
-        style={{
-          display: "flex",
-          width: "100%",
-          height: "100vh",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
+        className="login-contents-wrap"
+        style={{ marginTop: "70px", paddingTop: "70px" }}
       >
-        <form
-          style={{ display: "flex", flexDirection: "column" }}
-          onSubmit={onSubmitHandler}
-        >
-          <label>Email</label>
-          <input type="email" value={Email} onChange={onEmailHandler}></input>
-          <label>Password</label>
-          <input
-            type="password"
-            value={Password}
-            onChange={onPasswordHandler}
-          ></input>
-          <br />
-          <button>Login</button>
-        </form>
+        <div className="login-input-form">
+          <form
+            style={{ display: "flex", flexDirection: "column" }}
+            onSubmit={onSubmitHandler}
+          >
+            <label>Email</label>
+            <input type="email" value={Email} onChange={onEmailHandler}></input>
+            <label>Password</label>
+            <input
+              type="password"
+              value={Password}
+              onChange={onPasswordHandler}
+            ></input>
+            <br />
+            <button className="login-btn">Login</button>
+            <button type="button" className="register-btn">
+              Register
+            </button>
+          </form>
+        </div>
       </div>
     </Layout>
   );
