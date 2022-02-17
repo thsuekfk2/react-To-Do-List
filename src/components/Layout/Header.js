@@ -5,8 +5,12 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
 import { useCookies } from "react-cookie";
+
 const Header = (props) => {
   const [navbar, setNavbar] = useState(false);
+  useEffect(() => {
+    return () => setNavbar(true);
+  }, []);
 
   const changeBackground = () => {
     if (window.location.pathname === "/") {
