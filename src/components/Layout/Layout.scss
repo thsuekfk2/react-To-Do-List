@@ -1,2 +1,6 @@
-div.contents-wrap {
+div.layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+  justify-content: center;
 }

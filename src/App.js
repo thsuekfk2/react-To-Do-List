@@ -9,6 +9,8 @@ import RegisterPage from "./components/views/RegisterPage/RegisterPage";
 import TodoList from "./components/TodoList";
 import Auth from "./hoc/auth";
 import Mypage from "./components/views/Mypage/Mypage";
+import CartPage from "./components/views/CartPage/CartPage";
+
 const GlobalStyle = createGlobalStyle`
   body {
     margin:0;
@@ -27,9 +29,10 @@ function App() {
       <GlobalStyle />
       <Switch>
         <Route exact path="/" component={Auth(LandingPage, null)} />
-        <Route exact path="/login" component={Auth(LoginPage, false)} />
+        <Route exact path="/login" component={Auth(LoginPage, null)} />
         <Route exact path="/mypage" component={Auth(Mypage, true)} />
-        <Route exact path="/register" component={Auth(RegisterPage, false)} />
+        <Route exact path="/register" component={Auth(RegisterPage, null)} />
+        <Route exact path="/cart" component={Auth(CartPage, null)} />
 
         <Route exact path="/todo">
           <TodoList

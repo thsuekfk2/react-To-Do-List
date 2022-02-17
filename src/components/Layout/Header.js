@@ -74,7 +74,11 @@ const Header = (props) => {
               )}
             </li>
             <li className="basket-icon">
-              <BiBasket />
+              <Link to="/cart">
+                <span>
+                  <BiBasket />
+                </span>
+              </Link>
             </li>
           </ul>
         </nav>
