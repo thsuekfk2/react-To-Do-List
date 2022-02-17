@@ -12,6 +12,9 @@ import Mypage from "./components/views/Mypage/Mypage";
 const GlobalStyle = createGlobalStyle`
   body {
     margin:0;
+    a{text-decoration: none;} 
+    a:visited { color:black; }
+    
   }
 `;
 

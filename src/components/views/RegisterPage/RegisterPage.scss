@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
-.login-contents-wrap {
+.register-contents-wrap {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -7,7 +7,7 @@
   height: 100%;
   width: 100%;
   font-family: "PT Serif", serif;
-  .login-input-form {
+  .register-input-form {
     width: 30%;
   }
   button {
@@ -49,12 +49,9 @@
 
   button:hover {
     color: white;
-    a {
-      color: white;
-    }
   }
 }
-.login-input-form {
+.register-input-form {
   label {
     margin: 20px 0px;
     font-size: 13px;
@@ -69,8 +66,8 @@
   }
 }
 @media (max-width: 1024px) {
-  .login-contents-wrap {
-    div.login-input-form {
+  .register-contents-wrap {
+    div.register-input-form {
       width: 50%;
     }
   }
@@ -78,8 +75,8 @@
 @media (max-width: 768px) {
 }
 @media (max-width: 480px) {
-  .login-contents-wrap {
-    div.login-input-form {
+  .register-contents-wrap {
+    div.register-input-form {
       width: 80%;
     }
   }

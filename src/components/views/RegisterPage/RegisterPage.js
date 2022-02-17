@@ -1,9 +1,10 @@
 import { Axios } from "axios";
 import React, { useState } from "react";
-
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../../_actions/user_action";
 import { withRouter } from "react-router-dom";
+import "./RegisterPage.scss";
+import Layout from "../../Layout/Layout";
 
 function RegisterPage(props) {
   const dispatch = useDispatch();
@@ -46,43 +47,48 @@ function RegisterPage(props) {
     });
   };
   return (
-    <div
-      style={{
-        display: "flex",
-        width: "100%",
-        height: "100vh",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <form
-        style={{ display: "flex", flexDirection: "column" }}
-        onSubmit={onSubmitHandler}
+    <Layout>
+      <div
+        className="register-contents-wrap"
+        style={{
+          display: "flex",
+          width: "100%",
+          height: "100vh",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
-        <label>Email</label>
-        <input type="email" value={Email} onChange={onEmailHandler}></input>
+        <div className="register-input-form">
+          <form
+            style={{ display: "flex", flexDirection: "column" }}
+            onSubmit={onSubmitHandler}
+          >
+            <label>Email</label>
+            <input type="email" value={Email} onChange={onEmailHandler}></input>
 
-        <label>Name</label>
-        <input type="test" value={Name} onChange={onNameHandler}></input>
+            <label>Name</label>
+            <input type="test" value={Name} onChange={onNameHandler}></input>
 
-        <label>Password</label>
-        <input
-          type="password"
-          value={Password}
-          onChange={onPasswordHandler}
-        ></input>
+            <label>Password</label>
+            <input
+              type="password"
+              value={Password}
+              onChange={onPasswordHandler}
+            ></input>
 
-        <label>Confirm Password</label>
-        <input
-          type="password"
-          value={ConfirmPassword}
-          onChange={onConfirmPasswordHandler}
-        ></input>
+            <label>Confirm Password</label>
+            <input
+              type="password"
+              value={ConfirmPassword}
+              onChange={onConfirmPasswordHandler}
+            ></input>
 
-        <br />
-        <button>Register</button>
-      </form>
-    </div>
+            <br />
+            <button>Register</button>
+          </form>
+        </div>
+      </div>
+    </Layout>
   );
 }
 

@@ -1,6 +1,6 @@
 import { Axios } from "axios";
 import React, { useState } from "react";
-
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../../_actions/user_action";
 import { withRouter } from "react-router-dom";
@@ -33,6 +33,9 @@ function LoginPage(props) {
     dispatch(loginUser(body)).then((res) => {
       if (res.payload.loginSuccess) {
         props.history.push("/");
+      } else {
+        console.log(res.payload.message);
+        alert(res.payload.message);
       }
     });
   };
@@ -58,7 +61,7 @@ function LoginPage(props) {
             <br />
             <button className="login-btn">Login</button>
             <button type="button" className="register-btn">
-              Register
+              <Link to="/register">Register</Link>
             </button>
           </form>
         </div>
