@@ -14,6 +14,9 @@
   z-index: 9;
 }
 .header-logo {
+  span {
+    color: white;
+  }
   &:hover {
     opacity: 50%;
     transition: 0.2s;
@@ -27,6 +30,9 @@
   background-color: white;
   color: black;
   transition: 0.4s linear;
+  span {
+    color: black;
+  }
   nav.header-nav {
     a {
       color: black;
@@ -74,11 +80,17 @@ nav.header-nav {
   //모바일
   .menu-icon {
     display: flex;
+    span {
+      color: white;
+    }
     &:hover {
       opacity: 50%;
       transition: 0.2s;
       cursor: pointer;
     }
+  }
+  .header.active {
+    height: 60px;
   }
   .header {
     height: 60px;

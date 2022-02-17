@@ -50,9 +50,17 @@ const Header = (props) => {
     >
       <div className="header-contens">
         <li className="menu-icon">
-          <BiMenu />
+          <Link to="/">
+            <span>
+              <BiMenu />
+            </span>
+          </Link>
         </li>
-        <div className="header-logo">felices sueños</div>
+        <div className="header-logo">
+          <Link to="/">
+            <span>felices sueños</span>
+          </Link>
+        </div>
         <nav className="header-nav">
           <ul className="nav-menu-name">
             <li className="nav-about">ABOUT</li>
