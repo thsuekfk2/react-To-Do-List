@@ -1,6 +1,8 @@
 import { React, useState } from "react";
 import Layout from "../../Layout/Layout";
 import "./UploadListPage.scss";
+import FileUpload from "../../utils/FileUpload";
+
 function UploadListPage() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -36,6 +38,7 @@ function UploadListPage() {
         >
           <div className="upload-title">Write down your dreams</div>
           <div className="upload-input-form">
+            <FileUpload />
             <form style={{ display: "flex", flexDirection: "column" }}>
               <label>Your dream</label>
               <input value={title} onChange={titleChangeHandler} />
