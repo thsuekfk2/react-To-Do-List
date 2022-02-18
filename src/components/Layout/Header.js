@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import { useSelector } from "react-redux";
 
 const Header = (props) => {
+  const user = useSelector((state) => state.user);
   const [navbar, setNavbar] = useState(false);
   useEffect(() => {
     return () => setNavbar(true);
@@ -62,10 +64,19 @@ const Header = (props) => {
           </Link>
         </div>
         <nav className="header-nav">
-          <ul className="nav-menu-name">
-            <li className="nav-about">ABOUT</li>
-            <li className="nav-list">TO DO</li>
-          </ul>
+          {user.userData && !user.userData.isAuth ? (
+            <ul className="nav-menu-name">
+              <li className="nav-about">ABOUT</li>
+            </ul>
+          ) : (
+            <ul className="nav-menu-name">
+              <li className="nav-about">ABOUT</li>
+              <li className="nav-list">
+                <Link to="/todo/upload">TO DO</Link>
+              </li>
+            </ul>
+          )}
+
           <ul className="nav-menu-icon">
             <li className="login-icon">
               {cookies.x_auth ? ( //쿠키 값이 있으면 로그아웃 표시

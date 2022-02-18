@@ -58,6 +58,7 @@ function RegisterPage(props) {
           alignItems: "center",
         }}
       >
+        <div className="register-title">Register</div>
         <div className="register-input-form">
           <form
             style={{ display: "flex", flexDirection: "column" }}

@@ -45,6 +45,7 @@ function LoginPage(props) {
         className="login-contents-wrap"
         style={{ marginTop: "70px", paddingTop: "70px" }}
       >
+        <div className="login-title">Login</div>
         <div className="login-input-form">
           <form
             style={{ display: "flex", flexDirection: "column" }}

@@ -14,11 +14,12 @@
   z-index: 9;
 }
 .header-logo {
+  font-size: 20px;
   span {
     color: white;
   }
   &:hover {
-    opacity: 50%;
+    opacity: 20%;
     transition: 0.2s;
     cursor: pointer;
   }
@@ -67,7 +68,7 @@ nav.header-nav {
   li {
     margin-left: 30px;
     &:hover {
-      opacity: 50%;
+      opacity: 20%;
       transition: 0.2s;
       cursor: pointer;
     }
@@ -78,13 +79,14 @@ nav.header-nav {
 }
 @media (max-width: 480px) {
   //모바일
+
   .menu-icon {
     display: flex;
     span {
       color: white;
     }
     &:hover {
-      opacity: 50%;
+      opacity: 20%;
       transition: 0.2s;
       cursor: pointer;
     }
@@ -96,6 +98,7 @@ nav.header-nav {
     height: 60px;
     .header-logo {
       padding-left: 20%;
+      font-size: 16px;
     }
     .header-contens {
       justify-content: space-between;

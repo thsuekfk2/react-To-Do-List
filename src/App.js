@@ -6,11 +6,10 @@ import { Link, Route, Switch } from "react-router-dom";
 import LandingPage from "./components/views/LandingPage/LandingPage";
 import LoginPage from "./components/views/LoginPage/LoginPage";
 import RegisterPage from "./components/views/RegisterPage/RegisterPage";
-import TodoList from "./components/TodoList";
 import Auth from "./hoc/auth";
 import Mypage from "./components/views/Mypage/Mypage";
 import CartPage from "./components/views/CartPage/CartPage";
-
+import UploadListPage from "./components/views/UploadListPage/UploadListPage.js";
 const GlobalStyle = createGlobalStyle`
   body {
     margin:0;
@@ -33,14 +32,13 @@ function App() {
         <Route exact path="/mypage" component={Auth(Mypage, true)} />
         <Route exact path="/register" component={Auth(RegisterPage, null)} />
         <Route exact path="/cart" component={Auth(CartPage, null)} />
-
-        <Route exact path="/todo">
-          <TodoList
+        <Route exact path="/todo/upload" component={Auth(UploadListPage, true)}>
+          {/* <TodoList
             toDo={toDo}
             toDos={toDos}
             setToDo={setToDo}
             setTodos={setTodos}
-          />
+          /> */}
         </Route>
       </Switch>
     </div>
