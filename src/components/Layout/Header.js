@@ -67,10 +67,16 @@ const Header = (props) => {
           {user.userData && !user.userData.isAuth ? (
             <ul className="nav-menu-name">
               <li className="nav-about">ABOUT</li>
+              <li className="nav-about">
+                <Link to="/shop">SHOP</Link>
+              </li>
             </ul>
           ) : (
             <ul className="nav-menu-name">
               <li className="nav-about">ABOUT</li>
+              <li className="nav-about">
+                <Link to="/shop">SHOP</Link>
+              </li>
               <li className="nav-list">
                 <Link to="/todo/upload">TO DO</Link>
               </li>
