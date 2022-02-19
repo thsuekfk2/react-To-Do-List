@@ -29,6 +29,12 @@ function UploadListPage() {
     { key: 4, value: "Year" },
     { key: 5, value: "Bucket list" },
   ];
+
+  const updateImages = (newImages) => {
+    //받아온 파라미터를 setImage로 image에 넣어줌
+
+    setImage(newImages);
+  };
   return (
     <div>
       <Layout>
@@ -38,7 +44,7 @@ function UploadListPage() {
         >
           <div className="upload-title">Write down your dreams</div>
           <div className="upload-input-form">
-            <FileUpload />
+            <FileUpload refreshFunction={updateImages} />
             <form style={{ display: "flex", flexDirection: "column" }}>
               <label>Your dream</label>
               <input value={title} onChange={titleChangeHandler} />

@@ -11,7 +11,7 @@ const FileUploadContents = styled.div`
   justify-content: center;
   align-items: center;
 `;
-function FileUpload() {
+function FileUpload(props) {
   const [images, setImages] = useState([]);
   const dropHandler = (files) => {
     let formData = new FormData();
@@ -24,6 +24,8 @@ function FileUpload() {
         console.log(res.data);
         setImages([...images, res.data.filePath]);
         //기존이미지 + 새로운 이미지를 넣어줌
+        props.refreshFunction([...images, res.data.filePath]);
+        //이미지 변화를 부모 컴포넌트로 전달시켜줌
       } else {
         alert("파일을 저장하는데 실패했습니다.");
         console.log(res);
@@ -38,6 +40,7 @@ function FileUpload() {
     let newImages = [...images]; //기존 이미지를 다 복사
     newImages.splice(currentIndex, 1); //클릭한 인덱스를 지워줌
     setImages(newImages);
+    props.refreshFunction(newImages);
   };
 
   return (
