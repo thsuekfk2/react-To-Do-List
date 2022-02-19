@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../../Layout/Layout";
 import axios from "axios";
+
+import ImageSlider from "../../utils/ImageSlider";
+
 import "./ShopPage.scss";
 function ShopPage() {
   const [todos, setTodos] = useState([]);
@@ -18,9 +21,10 @@ function ShopPage() {
     console.log(todo);
     return (
       <div key={i}>
-        <div className="shop-card-img">
-          <img src={`http://localhost:5000/${todo.images[0]}`} />
+        <div className="shop-card-img" style={{ width: "300px" }}>
+          <ImageSlider images={todo.images} />
         </div>
+
         <div className="shop-card-contents">
           <ul>
             <li>Dream : {todo.title}</li>
