@@ -31,6 +31,15 @@ function FileUpload() {
     });
     //formData, config를 같이 넣어주지 않으면 file을 보낼 때 에러가 발생한다.
   };
+
+  const deleteHandler = (image) => {
+    const currentIndex = images.indexOf(image); //클릭한 인덱스 파악
+
+    let newImages = [...images]; //기존 이미지를 다 복사
+    newImages.splice(currentIndex, 1); //클릭한 인덱스를 지워줌
+    setImages(newImages);
+  };
+
   return (
     <div
       style={{
@@ -59,6 +68,7 @@ function FileUpload() {
       >
         {images.map((image, index) => (
           <div
+            onClick={() => deleteHandler(image)}
             key={index}
             style={{
               display: "flex",

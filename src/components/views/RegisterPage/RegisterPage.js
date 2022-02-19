@@ -42,7 +42,7 @@ function RegisterPage(props) {
       if (res.payload.success) {
         props.history.push("/login");
       } else {
-        alert("Failed to sign up");
+        alert(res.payload.err.message);
       }
     });
   };

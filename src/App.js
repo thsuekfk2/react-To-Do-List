@@ -20,9 +20,6 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
-  const [toDo, setToDo] = useState("");
-  const [toDos, setTodos] = useState([]);
-
   return (
     <div>
       <GlobalStyle />
@@ -32,14 +29,11 @@ function App() {
         <Route exact path="/mypage" component={Auth(Mypage, true)} />
         <Route exact path="/register" component={Auth(RegisterPage, null)} />
         <Route exact path="/cart" component={Auth(CartPage, null)} />
-        <Route exact path="/todo/upload" component={Auth(UploadListPage, true)}>
-          {/* <TodoList
-            toDo={toDo}
-            toDos={toDos}
-            setToDo={setToDo}
-            setTodos={setTodos}
-          /> */}
-        </Route>
+        <Route
+          exact
+          path="/todo/upload"
+          component={Auth(UploadListPage, true)}
+        ></Route>
       </Switch>
     </div>
   );
