@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
+.shop-contents-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 2rem auto;
+  justify-content: center;
+  align-items: center;
+  font-family: "PT Serif", serif;
+  .shop-title {
+    padding-bottom: 50px;
+    font-size: 20px;
+  }
+  .shop-more {
+    justify-content: center;
+  }
+  .shop-card {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    .shop-card-img {
+      width: 100%;
+      height: 100%;
+      img {
+        max-width: 300px;
+        max-height: 400px;
+      }
+    }
+    .shop-card-contents {
+      li:hover {
+        background-color: #f6f6f6;
+      }
+      ul {
+        list-style-type: none;
+        text-align: center;
+        margin: 0px;
+        padding: 0px;
+        max-width: 900px;
+        width: 100%;
+        padding-bottom: 30px;
+        li {
+          display: block;
+          padding: 10px;
+          margin-bottom: 5px;
+          border: 1px solid #efefef;
+          font-size: 12px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  //모바일
+  .shop-contents-wrap {
+    width: 100%;
+    .shop-card {
+      div.shop-card-img {
+        width: 180px;
+        height: 200px;
+        min-width: 180px;
+        margin: 10px;
+      }
+    }
+  }
+}

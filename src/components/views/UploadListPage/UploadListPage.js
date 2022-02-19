@@ -51,7 +51,7 @@ function UploadListPage(props) {
       title: title,
       description: description,
       price: price,
-      image: image,
+      images: image,
       period: period,
     };
     axios.post("/api/todo", body).then((res) => {
