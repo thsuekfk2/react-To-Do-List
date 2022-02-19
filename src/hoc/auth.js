@@ -1,6 +1,6 @@
 import { Axios } from "axios";
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../_actions/user_action";
 
 export default function (SpecificComponent, option, adminRoute = null) {
@@ -11,6 +11,7 @@ export default function (SpecificComponent, option, adminRoute = null) {
   function AuthenticationCheck(props) {
     //back-end request 를 날려서 사람의 상태를 가져옴
     //쿠키를 이용해서 유저 판단
+    let user = useSelector((state) => state.user);
     const dispatch = useDispatch();
     useEffect(() => {
       dispatch(auth()).then((res) => {
@@ -34,7 +35,7 @@ export default function (SpecificComponent, option, adminRoute = null) {
         }
       });
     }, []);
-    return <SpecificComponent />;
+    return <SpecificComponent {...props} user={user} />;
   }
 
   return AuthenticationCheck;
