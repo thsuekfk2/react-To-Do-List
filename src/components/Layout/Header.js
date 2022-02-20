@@ -68,14 +68,14 @@ const Header = (props) => {
             <ul className="nav-menu-name">
               <li className="nav-about">ABOUT</li>
               <li className="nav-about">
-                <Link to="/shop">SHOP</Link>
+                <Link to="/dream">DREAM</Link>
               </li>
             </ul>
           ) : (
             <ul className="nav-menu-name">
               <li className="nav-about">ABOUT</li>
               <li className="nav-about">
-                <Link to="/shop">SHOP</Link>
+                <Link to="/dream">DREAM</Link>
               </li>
               <li className="nav-list">
                 <Link to="/todo/upload">TO DO</Link>

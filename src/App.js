@@ -31,7 +31,7 @@ function App() {
         <Route exact path="/mypage" component={Auth(Mypage, true)} />
         <Route exact path="/register" component={Auth(RegisterPage, null)} />
         <Route exact path="/cart" component={Auth(CartPage, null)} />
-        <Route exact path="/shop" component={Auth(ShopPage, null)} />
+        <Route exact path="/dream" component={Auth(ShopPage, null)} />
         <Route
           exact
           path="/todo/upload"
