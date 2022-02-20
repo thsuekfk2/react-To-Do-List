@@ -34,22 +34,27 @@ div.main-contents {
 }
 
 div.gallery-wrapper {
+  display: flex;
   width: 100%;
-  height: 100%;
+  height: 500px;
+  align-items: center;
+  justify-content: center;
   display: flex;
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-}
-img.gallery-img {
-  height: 300px;
-  width: 300px;
-  margin: 5px;
-  background: cyan;
-  flex-shrink: 0;
-  &:hover {
-    filter: brightness(80%);
-    transition: 0.5s;
-    cursor: pointer;
+
+  img {
+    max-width: 300px;
+    min-height: 300px;
+    max-width: 300px;
+    max-height: 300px;
+    object-fit: cover;
+    margin: 5px;
+    &:hover {
+      filter: brightness(80%);
+      transition: 0.5s;
+      cursor: pointer;
+    }
   }
 }

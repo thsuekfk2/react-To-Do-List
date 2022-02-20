@@ -1,7 +1,29 @@
 import "./Main.scss";
 import Header from "./Header";
+import ImageSlider from "../utils/ImageSlider";
+import "antd/dist/antd.css";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 const Main = () => {
+  const [todos, setTodos] = useState([]);
+  useEffect(() => {
+    let body = {
+      skip: 0,
+      limit: 3,
+    };
+    getTodos(body);
+  }, []);
+
+  const getTodos = (body) => {
+    axios.post("/api/todo/todos", body).then((res) => {
+      if (res.data.success) {
+        setTodos(res.data.todoInfo);
+      } else {
+        alert("상품들을 가져오는데 실패 했습니다.");
+      }
+    });
+  };
   return (
     <div>
       <Header />
@@ -17,9 +39,13 @@ const Main = () => {
         contents2={"당신도 포기하지마세요"}
       />
       <div className="gallery-wrapper">
-        <img className="gallery-img" src="https://ifh.cc/g/5DEPBA.jpg" />
-        <img className="gallery-img" src="https://ifh.cc/g/5DEPBA.jpg" />
-        <img className="gallery-img" src="https://ifh.cc/g/5DEPBA.jpg" />
+        {todos.map((todo, i) => (
+          <div key={i}>
+            <div style={{ width: "300px", height: "300px" }}>
+              <ImageSlider images={todo.images} />
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
