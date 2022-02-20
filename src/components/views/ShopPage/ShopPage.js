@@ -2,12 +2,19 @@ import React, { useEffect, useState } from "react";
 import Layout from "../../Layout/Layout";
 import axios from "axios";
 import ImageSlider from "../../utils/ImageSlider";
+import Checkbox from "./Section/CheckBox";
+import { Period } from "./Section/Datas";
+
 import "./ShopPage.scss";
 function ShopPage() {
   const [todos, setTodos] = useState([]);
   const [skipNum, setSkipNum] = useState(0);
   const [limit, setLimit] = useState(3);
   const [postSize, setPostSize] = useState(0);
+  const [filtersObject, setFilters] = useState({
+    period: [],
+    price: [],
+  });
   useEffect(() => {
     let body = {
       skip: skipNum,
@@ -45,7 +52,6 @@ function ShopPage() {
   };
 
   const renderCards = todos.map((todo, i) => {
-    console.log(todo);
     return (
       <div key={i}>
         <div className="shop-card-img">
@@ -62,6 +68,20 @@ function ShopPage() {
       </div>
     );
   });
+  const showFilterdResult = (filters) => {
+    let body = {
+      skip: 0, //처음 데이터 부터 다시 가져와야 함
+      limit: limit,
+      filters: filters,
+    };
+    getTodos(body);
+    setSkipNum(0);
+  };
+  const handleFilters = (filters, category) => {
+    const newFilters = { ...filtersObject };
+    newFilters[category] = filters;
+    showFilterdResult(newFilters);
+  };
 
   return (
     <Layout>
@@ -69,10 +89,18 @@ function ShopPage() {
         className="shop-contents-wrap"
         style={{ marginTop: "70px", paddingTop: "70px" }}
       >
-        <div className="shop-title">shop</div>
+        <div className="shop-title">Dream</div>
         {/* filter */}
+
+        {/* checkBox */}
+        <Checkbox
+          list={Period}
+          handleFilters={(filters) => handleFilters(filters, "period")}
+        />
+        {/* radioBox */}
         {/* search */}
 
+        {/* card */}
         <div className="shop-card">{renderCards}</div>
         {postSize >= limit && (
           <button className="shop-more" onClick={loadMoreHandler}>
