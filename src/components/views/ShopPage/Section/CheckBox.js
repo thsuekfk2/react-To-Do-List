@@ -35,7 +35,7 @@ function CheckBox(props) {
       </React.Fragment>
     ));
   return (
-    <div style={{ paddingBottom: "50px" }}>
+    <div>
       <Collapse defaultActiveKey={["1"]}>
         <Panel header="Period" key="1">
           {renderCheckboxLists()}

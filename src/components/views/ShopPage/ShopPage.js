@@ -3,7 +3,8 @@ import Layout from "../../Layout/Layout";
 import axios from "axios";
 import ImageSlider from "../../utils/ImageSlider";
 import Checkbox from "./Section/CheckBox";
-import { Period } from "./Section/Datas";
+import RadioBox from "./Section/RadioBox";
+import { Period, Price } from "./Section/Datas";
 
 import "./ShopPage.scss";
 function ShopPage() {
@@ -77,10 +78,27 @@ function ShopPage() {
     getTodos(body);
     setSkipNum(0);
   };
+  const handlePrice = (value) => {
+    const data = Price;
+    let array = [];
+
+    for (let key in data) {
+      if (data[key]._id === parseInt(value, 10)) {
+        array = data[key].array;
+      }
+    }
+    return array;
+  };
   const handleFilters = (filters, category) => {
     const newFilters = { ...filtersObject };
     newFilters[category] = filters;
+
+    if (category === "price") {
+      let priceValues = handlePrice(filters);
+      newFilters[category] = priceValues;
+    }
     showFilterdResult(newFilters);
+    setFilters(newFilters);
   };
 
   return (
@@ -91,13 +109,19 @@ function ShopPage() {
       >
         <div className="shop-title">Dream</div>
         {/* filter */}
+        <div className="shop-check-wrap">
+          {/* checkBox */}
+          <Checkbox
+            list={Period}
+            handleFilters={(filters) => handleFilters(filters, "period")}
+          />
+          {/* radioBox */}
+          <RadioBox
+            list={Price}
+            handleFilters={(filters) => handleFilters(filters, "price")}
+          />
+        </div>
 
-        {/* checkBox */}
-        <Checkbox
-          list={Period}
-          handleFilters={(filters) => handleFilters(filters, "period")}
-        />
-        {/* radioBox */}
         {/* search */}
 
         {/* card */}
