@@ -5,7 +5,7 @@ import ImageSlider from "../../utils/ImageSlider";
 import Checkbox from "./Section/CheckBox";
 import RadioBox from "./Section/RadioBox";
 import { Period, Price } from "./Section/Datas";
-
+import SearchFeature from "./Section/SearchFeature";
 import "./ShopPage.scss";
 function ShopPage() {
   const [todos, setTodos] = useState([]);
@@ -16,6 +16,7 @@ function ShopPage() {
     period: [],
     price: [],
   });
+  const [SearchTerm, setSearchTerm] = useState("");
   useEffect(() => {
     let body = {
       skip: skipNum,
@@ -100,7 +101,20 @@ function ShopPage() {
     showFilterdResult(newFilters);
     setFilters(newFilters);
   };
+  const updateSearchTerm = (newSearchTerm) => {
+    let body = {
+      skip: 0,
+      limit: limit,
+      filters: filtersObject,
+      searchTerm: newSearchTerm,
+    };
+    setSkipNum(0);
+    setSearchTerm(newSearchTerm);
+    getTodos(body);
 
+    //자식 컴포넌트 (search)에서 받은 값을 부모 state로 넣어준다.
+    setSearchTerm(newSearchTerm);
+  };
   return (
     <Layout>
       <div
@@ -123,6 +137,9 @@ function ShopPage() {
         </div>
 
         {/* search */}
+        <div className="search-wrap">
+          <SearchFeature refeshFunction={updateSearchTerm} />
+        </div>
 
         {/* card */}
         <div className="shop-card">{renderCards}</div>

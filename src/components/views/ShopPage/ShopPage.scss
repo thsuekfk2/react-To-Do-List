@@ -7,6 +7,12 @@
   justify-content: center;
   align-items: center;
   font-family: "PT Serif", serif;
+  .search-wrap {
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
+    padding-bottom: 30px;
+  }
   .shop-check-wrap {
     display: flex;
     flex-direction: row;
