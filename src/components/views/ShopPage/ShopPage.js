@@ -57,7 +57,9 @@ function ShopPage() {
     return (
       <div key={i}>
         <div className="shop-card-img">
-          <ImageSlider images={todo.images} />
+          <a href={`/dream/${todo._id}`}>
+            <ImageSlider images={todo.images} />
+          </a>
         </div>
 
         <div className="shop-card-contents">

@@ -11,6 +11,7 @@ import Mypage from "./components/views/Mypage/Mypage";
 import CartPage from "./components/views/CartPage/CartPage";
 import UploadListPage from "./components/views/UploadListPage/UploadListPage.js";
 import ShopPage from "./components/views/ShopPage/ShopPage.js";
+import DetailTodoPage from "./components/views/DetailTodoPage/DetailTodoPage";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -37,6 +38,11 @@ function App() {
           path="/todo/upload"
           component={Auth(UploadListPage, true)}
         ></Route>
+        <Route
+          exact
+          path="/dream/:todoId"
+          component={Auth(DetailTodoPage, null)}
+        />
       </Switch>
     </div>
   );
