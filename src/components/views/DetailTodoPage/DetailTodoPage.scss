@@ -1,0 +1,9 @@
+.detail-wrap {
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  .detail-title {
+    display: flex;
+    justify-content: center;
+  }
+}
