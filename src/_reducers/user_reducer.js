@@ -1,4 +1,9 @@
-import { AUTH_USER, LOGIN_USER , REGISTER_USER } from "../_actions/types";
+import {
+  AUTH_USER,
+  LOGIN_USER,
+  REGISTER_USER,
+  ADD_TO_CART,
+} from "../_actions/types";
 
 //전 state, action => nextState
 export default function (state = {}, action) {
@@ -6,12 +11,18 @@ export default function (state = {}, action) {
     case LOGIN_USER:
       return { ...state, loginSuccess: action.payload };
       break;
-      case REGISTER_USER:
-        return { ...state, register: action.payload };
-        break;
-      case AUTH_USER:
-        return { ...state, userData: action.payload };
-        break;
+    case REGISTER_USER:
+      return { ...state, register: action.payload };
+      break;
+    case AUTH_USER:
+      return { ...state, userData: action.payload };
+      break;
+    case ADD_TO_CART:
+      return {
+        ...state,
+        userData: { ...state.userData, cart: action.payload },
+      };
+      break;
     default:
       return state;
   }
