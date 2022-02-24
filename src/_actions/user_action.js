@@ -1,5 +1,11 @@
 import axios from "axios";
-import { LOGIN_USER, REGISTER_USER, AUTH_USER, ADD_TO_CART } from "./types";
+import {
+  LOGIN_USER,
+  REGISTER_USER,
+  AUTH_USER,
+  ADD_TO_CART,
+  GET_CART_ITEMS,
+} from "./types";
 
 //서버에 받은 데이터를 request에 저장을 하고
 
@@ -49,6 +55,30 @@ export function addToCart(id) {
   //request를 (타입과 payload) 리듀서로 보내야한다.
   return {
     type: ADD_TO_CART,
+    payload: request,
+  };
+}
+
+export function getCartItem(cartItems, userCart) {
+  const request = axios
+    .get(`/api/todo/todo_by_id?id=${cartItems}&type=array`)
+    .then((res) => {
+      //CartItem들에 해당하는 정보들을
+      //todo collection에서 가져온후에
+      //Quantity 정보를 넣어준다.
+      userCart.forEach((cartItem) => {
+        res.data.todo.forEach((todotDetail, index) => {
+          if (cartItem.id === todotDetail._id) {
+            res.data.todo[index].quantity = cartItem.quantity;
+          }
+        });
+      });
+      console.log(res.data);
+      return res.data;
+    });
+
+  return {
+    type: GET_CART_ITEMS,
     payload: request,
   };
 }

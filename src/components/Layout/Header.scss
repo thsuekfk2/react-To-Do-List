@@ -24,7 +24,9 @@
     cursor: pointer;
   }
 }
-
+.basket-icon span {
+  color: white;
+}
 .header.active {
   width: 100%;
   height: 100px;
@@ -34,6 +36,7 @@
   span {
     color: black;
   }
+
   nav.header-nav {
     a {
       color: black;

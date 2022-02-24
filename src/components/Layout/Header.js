@@ -6,7 +6,7 @@ import axios from "axios";
 import { withRouter } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { useSelector } from "react-redux";
-
+import { Badge, Avatar } from "antd";
 const Header = (props) => {
   const user = useSelector((state) => state.user);
   const [navbar, setNavbar] = useState(false);
@@ -101,7 +101,9 @@ const Header = (props) => {
             <li className="basket-icon">
               <Link to="/cart">
                 <span>
-                  <BiBasket />
+                  <Badge count={5} offset={[10, 0]}>
+                    <BiBasket />
+                  </Badge>
                 </span>
               </Link>
             </li>

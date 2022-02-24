@@ -3,6 +3,7 @@ import {
   LOGIN_USER,
   REGISTER_USER,
   ADD_TO_CART,
+  GET_CART_ITEMS,
 } from "../_actions/types";
 
 //전 state, action => nextState
@@ -21,6 +22,12 @@ export default function (state = {}, action) {
       return {
         ...state,
         userData: { ...state.userData, cart: action.payload },
+      };
+      break;
+    case GET_CART_ITEMS:
+      return {
+        ...state,
+        cartDeatil: action.payload,
       };
       break;
     default:
