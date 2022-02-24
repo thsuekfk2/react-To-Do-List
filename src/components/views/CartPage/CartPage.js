@@ -2,27 +2,34 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { withRouter } from "react-router-dom";
 import Layout from "../../Layout/Layout";
-import { getCartItem } from "../../../_actions/user_action";
+import { getCartItems } from "../../../_actions/user_action";
+import UserCardBlock from "./Sections/UserCardBlock";
 import "./CartPage.scss";
 function CartPage(props) {
   const dispatch = useDispatch();
   useEffect(() => {
     let cartItems = [];
-    //리덕스 user state , cart 안에 상품이 들어있는지 확인
     if (props.user.userData && props.user.userData.cart) {
       if (props.user.userData.cart.length > 0) {
         props.user.userData.cart.forEach((item) => {
           cartItems.push(item.id);
         });
-
-        dispatch(getCartItem(cartItems, props.user.userData.cart));
+        dispatch(getCartItems(cartItems, props.user.userData.cart));
       }
     }
   }, [props.user.userData]);
   return (
     <div>
       <Layout>
-        <div className="cart-contents-wrap">장바구니</div>
+        <div
+          className="cart-contents-wrap"
+          style={{ marginTop: "70px", paddingTop: "70px" }}
+        >
+          <div className="cart-title">Cart</div>
+          <UserCardBlock
+            todo={props.user.cartDetail && props.user.cartDetail.todo}
+          />
+        </div>
       </Layout>
     </div>
   );

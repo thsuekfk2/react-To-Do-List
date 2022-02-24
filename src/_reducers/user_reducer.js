@@ -27,7 +27,7 @@ export default function (state = {}, action) {
     case GET_CART_ITEMS:
       return {
         ...state,
-        cartDeatil: action.payload,
+        cartDetail: action.payload,
       };
       break;
     default:

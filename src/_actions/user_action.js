@@ -59,7 +59,7 @@ export function addToCart(id) {
   };
 }
 
-export function getCartItem(cartItems, userCart) {
+export function getCartItems(cartItems, userCart) {
   const request = axios
     .get(`/api/todo/todo_by_id?id=${cartItems}&type=array`)
     .then((res) => {
@@ -73,7 +73,7 @@ export function getCartItem(cartItems, userCart) {
           }
         });
       });
-      console.log(res.data);
+      // console.log("res", res.data);
       return res.data;
     });
 
